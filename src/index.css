@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  @apply bg-paper text-ink font-body antialiased;
+}
+
+/* Signature arch motif: used for photography frames throughout the site
+   (hero art, course art, teacher portraits) as the site's one recurring
+   distinctive shape, echoing the mihrab arch. */
+.arch-frame {
+  clip-path: path(
+    "M0,400 L0,140 C0,62.7 62.7,0 140,0 L260,0 C337.3,0 400,62.7 400,140 L400,400 Z"
+  );
+}
+
+.arch-frame-wide {
+  clip-path: path(
+    "M0,600 L0,180 C0,80.6 152,0 340,0 C528,0 680,80.6 680,180 L680,600 Z"
+  );
+}
+
+.arch-tile {
+  clip-path: path("M0,64 L0,28 C0,12.5 12.5,0 28,0 L36,0 C51.5,0 64,12.5 64,28 L64,64 Z");
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:rounded-md focus:bg-night focus:text-paper focus:px-4 focus:py-2 focus:font-body focus:text-sm;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #C79A46;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: #C79A46;
+  color: #12261F;
+}
+
+.bg-lattice {
+  background-image: radial-gradient(circle at 1px 1px, rgba(199, 154, 70, 0.18) 1px, transparent 0);
+  background-size: 22px 22px;
+}
