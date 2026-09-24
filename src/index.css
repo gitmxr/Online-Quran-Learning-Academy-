@@ -32,19 +32,18 @@ body {
    (hero art, course art, teacher portraits) as the site's one recurring
    distinctive shape, echoing the mihrab arch. */
 .arch-frame {
-  clip-path: path(
-    "M0,400 L0,140 C0,62.7 62.7,0 140,0 L260,0 C337.3,0 400,62.7 400,140 L400,400 Z"
-  );
+  clip-path: url(#arch-clip-standard);
+  -webkit-clip-path: url(#arch-clip-standard);
 }
 
 .arch-frame-wide {
-  clip-path: path(
-    "M0,600 L0,180 C0,80.6 152,0 340,0 C528,0 680,80.6 680,180 L680,600 Z"
-  );
+  clip-path: url(#arch-clip-wide);
+  -webkit-clip-path: url(#arch-clip-wide);
 }
 
 .arch-tile {
-  clip-path: path("M0,64 L0,28 C0,12.5 12.5,0 28,0 L36,0 C51.5,0 64,12.5 64,28 L64,64 Z");
+  clip-path: url(#arch-clip-tile);
+  -webkit-clip-path: url(#arch-clip-tile);
 }
 
 .skip-link {

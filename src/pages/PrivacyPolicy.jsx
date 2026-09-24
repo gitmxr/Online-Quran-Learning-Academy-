@@ -18,11 +18,6 @@ export default function PrivacyPolicy() {
       />
       <section className="py-16 sm:py-24">
         <Container className="max-w-prose">
-          <div className="mb-8 rounded-xl border border-brass-200 bg-brass-50 px-5 py-4 font-body text-sm text-brass-900">
-            This is generic, editable placeholder content. Please have it reviewed by a
-            qualified professional before publishing the live website.
-          </div>
-
           <div className="flex flex-col gap-8 font-body text-[15px] leading-relaxed text-ink-soft">
             <PolicySection title="Introduction">
               {SITE_CONFIG.name} ("we", "us", "our") respects your privacy. This policy explains
@@ -60,7 +55,7 @@ export default function PrivacyPolicy() {
               Questions about this policy can be sent to {SITE_CONFIG.email}.
             </PolicySection>
 
-            <p className="text-sm text-ink-faint">Last updated: [Add date]</p>
+            <p className="text-sm text-ink-faint">Last updated: September 2026</p>
           </div>
         </Container>
       </section>

@@ -48,10 +48,12 @@ export default function Hero() {
 
         <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
           <ArchFrame
+            src="/images/hero/Masjid_bg2.jpg"
+            alt="Masjid an-Nabawi - Noor Ul Quran Online Academy"
             wide
             tone="brass"
-            label="[Add hero photograph of a Quran class]"
             className="mx-auto aspect-[17/15] w-full max-w-sm shadow-lantern lg:max-w-md"
+            imgClassName="h-full w-full object-cover object-[center_35%]"
           />
           <div className="absolute -bottom-5 left-1/2 w-[86%] -translate-x-1/2 rounded-2xl border border-night-100 bg-paper-card px-5 py-4 shadow-card sm:-bottom-6 sm:w-[78%]">
             <p className="font-display text-sm text-night-900">"Pay What You Can Afford"</p>

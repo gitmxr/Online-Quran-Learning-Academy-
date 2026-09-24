@@ -35,14 +35,16 @@ export const SITE_CONFIG = {
  * instead of hard-coding a phone number or message string.
  */
 export function buildWhatsAppLink({ course, classType, name } = {}) {
+  const details = [];
+  if (name) details.push(`Name: ${name}`);
+  if (course) details.push(`Interested Course: ${course}`);
+  if (classType) details.push(`Preferred Class Type: ${classType}`);
+
   const lines = [
     "Assalamu Alaikum,",
     "",
     "I am interested in joining Noor Ul Quran Online Academy.",
-    "",
-    `Name: ${name || ""}`,
-    `Interested Course: ${course || ""}`,
-    `Preferred Class Type: ${classType || ""}`,
+    ...(details.length > 0 ? ["", ...details] : []),
     "",
     "I would like to know more about the classes and enrollment process.",
     "",

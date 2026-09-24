@@ -114,6 +114,8 @@ export default function CourseDetail() {
 
           <aside className="flex flex-col gap-6">
             <ArchFrame
+              src={course.image || course.photo}
+              alt={course.title}
               label={`[Add ${course.title} photograph]`}
               className="aspect-[4/5] w-full"
             />

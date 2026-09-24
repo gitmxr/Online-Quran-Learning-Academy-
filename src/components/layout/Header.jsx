@@ -22,11 +22,11 @@ export default function Header({ onOpenMenu }) {
         scrolled ? "shadow-[0_1px_0_rgba(18,38,31,0.08)]" : ""
       }`}
     >
-      <Container className="flex h-[68px] items-center justify-between gap-6">
+      <Container className="flex h-[68px] items-center justify-between gap-4 lg:gap-6">
         <Logo />
 
         <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-0.5 xl:gap-1">
             {primaryNav.map((item) => (
               <li key={item.label} className="relative group">
                 {item.children ? (
@@ -34,7 +34,7 @@ export default function Header({ onOpenMenu }) {
                     <NavLink
                       to={item.to}
                       className={({ isActive }) =>
-                        `flex items-center gap-1 rounded-full px-3.5 py-2 font-body text-[15px] transition-colors ${
+                        `flex items-center gap-1 rounded-full px-2.5 xl:px-3.5 py-1.5 xl:py-2 font-body text-[14px] xl:text-[15px] whitespace-nowrap transition-colors ${
                           isActive ? "text-night-900 font-medium" : "text-ink-soft hover:text-night-800"
                         }`
                       }
@@ -63,7 +63,7 @@ export default function Header({ onOpenMenu }) {
                     to={item.to}
                     end={item.to === "/"}
                     className={({ isActive }) =>
-                      `block rounded-full px-3.5 py-2 font-body text-[15px] transition-colors ${
+                      `block rounded-full px-2.5 xl:px-3.5 py-1.5 xl:py-2 font-body text-[14px] xl:text-[15px] whitespace-nowrap transition-colors ${
                         isActive ? "text-night-900 font-medium" : "text-ink-soft hover:text-night-800"
                       }`
                     }
@@ -76,8 +76,13 @@ export default function Header({ onOpenMenu }) {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-3">
-          <CTALink to="/contact" variant="primary" className="hidden sm:inline-flex">
+        <div className="flex items-center gap-3 shrink-0">
+          <CTALink
+            to="/contact"
+            variant="primary"
+            size="header"
+            className="hidden sm:inline-flex font-semibold shadow-sm hover:shadow tracking-wide shrink-0"
+          >
             Enroll Now
           </CTALink>
           <button

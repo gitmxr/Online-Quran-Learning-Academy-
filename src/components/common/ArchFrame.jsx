@@ -12,6 +12,7 @@ export default function ArchFrame({
   label,
   wide = false,
   className = "",
+  imgClassName = "h-full w-full object-cover",
   tone = "night", // "night" | "brass"
 }) {
   const shapeClass = wide ? "arch-frame-wide" : "arch-frame";
@@ -33,7 +34,7 @@ export default function ArchFrame({
           src={src}
           alt={alt}
           loading="lazy"
-          className="h-full w-full object-cover"
+          className={imgClassName}
         />
       ) : (
         <>

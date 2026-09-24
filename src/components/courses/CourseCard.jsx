@@ -9,6 +9,8 @@ export default function CourseCard({ course }) {
       className="group flex flex-col rounded-2xl border border-night-100 bg-paper-card p-5 transition-colors hover:border-brass-300 sm:flex-row sm:items-center sm:gap-6"
     >
       <ArchFrame
+        src={course.image || course.photo}
+        alt={course.title}
         label={`[Add ${course.title} image]`}
         className="aspect-square w-full sm:w-28 shrink-0"
       />

@@ -8,8 +8,10 @@ export default function AboutPreview() {
     <section className="py-20 sm:py-28">
       <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <ArchFrame
-          label="[Add photograph of students learning]"
-          className="mx-auto aspect-[4/5] w-full max-w-sm"
+          src="/images/general/mom_son.jfif"
+          alt="Mother and son learning Quran online together"
+          className="mx-auto aspect-[4/5] w-full max-w-sm shadow-card"
+          imgClassName="h-full w-full object-cover object-center"
         />
         <div>
           <SectionHeading

@@ -24,6 +24,8 @@ export default function CoursesPreview() {
           {courses.map((course) => (
             <Link key={course.slug} to={`/courses/${course.slug}`} className="group block">
               <ArchFrame
+                src={course.image || course.photo}
+                alt={course.title}
                 label={`[Add ${course.title} image]`}
                 className="aspect-square w-full"
               />

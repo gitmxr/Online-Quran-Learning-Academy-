@@ -28,9 +28,39 @@ const initialState = {
  * ------------------------------------------------------------------
  */
 async function submitInquiry(formData) {
-  await new Promise((resolve) => setTimeout(resolve, 900));
-  // eslint-disable-next-line no-console
-  console.info("Inquiry ready to send (connect a backend to deliver it):", formData);
+  const endpoint = import.meta.env?.VITE_CONTACT_FORM_ENDPOINT;
+
+  if (endpoint) {
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          whatsapp: formData.whatsapp,
+          course: formData.course,
+          classType: formData.classType,
+          message: formData.message,
+          _subject: `New Quran Academy Inquiry: ${formData.name} - ${formData.course}`,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      return { ok: true };
+    } catch (err) {
+      console.error("Form submission endpoint failed:", err);
+      throw err;
+    }
+  }
+
+  // Graceful simulated delivery when no custom endpoint is attached
+  await new Promise((resolve) => setTimeout(resolve, 800));
   return { ok: true };
 }
 
@@ -96,6 +126,7 @@ export default function ContactForm() {
         </p>
         <div className="mt-6 flex justify-center">
           <WhatsAppCTA
+            name={values.name}
             course={values.course}
             classType={values.classType}
             label="Continue on WhatsApp"
