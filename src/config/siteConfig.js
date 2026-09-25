@@ -20,8 +20,8 @@ export const SITE_CONFIG = {
   availability: "Online classes available worldwide",
 
   social: {
-    facebook: "https://www.facebook.com/share/18Q9T19UB8/",
-    instagram: "https://www.instagram.com/noorulquranonlineaccademy",
+    facebook: "https://www.facebook.com/share/1C3kvVksM8/",
+    instagram: "https://www.instagram.com/noorulquranonlineaccademy?stkn=MWNoa3c1OXd5ZXIyNg%3D%3D",
     twitter: "https://x.com/quranonline74",
   },
 

@@ -29,37 +29,46 @@ const initialState = {
  */
 async function submitInquiry(formData) {
   const endpoint = import.meta.env?.VITE_CONTACT_FORM_ENDPOINT;
+  const web3Key = import.meta.env?.VITE_WEB3FORMS_ACCESS_KEY;
 
-  if (endpoint) {
+  const targetUrl = endpoint || (web3Key ? "https://api.web3forms.com/submit" : null);
+
+  if (targetUrl) {
     try {
-      const response = await fetch(endpoint, {
+      const payload = {
+        ...(web3Key ? { access_key: web3Key } : {}),
+        name: formData.name,
+        email: formData.email,
+        whatsapp: formData.whatsapp,
+        course: formData.course,
+        classType: formData.classType || "Not specified",
+        message: formData.message || "No additional notes",
+        subject: `New Quran Academy Inquiry: ${formData.name} (${formData.course})`,
+        _subject: `New Quran Academy Inquiry: ${formData.name} (${formData.course})`,
+        from_name: "Noor Ul Quran Online Academy",
+      };
+
+      const response = await fetch(targetUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          whatsapp: formData.whatsapp,
-          course: formData.course,
-          classType: formData.classType,
-          message: formData.message,
-          _subject: `New Quran Academy Inquiry: ${formData.name} - ${formData.course}`,
-        }),
+        body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || data.success === false) {
+        throw new Error(data.message || `HTTP ${response.status}`);
       }
       return { ok: true };
     } catch (err) {
-      console.error("Form submission endpoint failed:", err);
+      console.error("Form submission failed:", err);
       throw err;
     }
   }
 
-  // Graceful simulated delivery when no custom endpoint is attached
+  // Graceful simulated delivery when testing locally without an endpoint
   await new Promise((resolve) => setTimeout(resolve, 800));
   return { ok: true };
 }

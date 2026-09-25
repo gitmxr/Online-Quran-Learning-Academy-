@@ -3,25 +3,22 @@ import { SITE_CONFIG } from "../../config/siteConfig";
 
 export default function Logo({ light = false }) {
   return (
-    <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label={`${SITE_CONFIG.name} — Home`}>
-      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-night-800">
-        <svg width="18" height="18" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-          <path
-            d="M25 10c-6 1.5-10 6.8-10 13s4 11.5 10 13c-10 1.5-18-5.4-18-13S15 8.5 25 10z"
-            fill="#C79A46"
-          />
-        </svg>
-      </span>
+    <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0" aria-label={`${SITE_CONFIG.name} — Home`}>
+      <img
+        src="/logo.png"
+        alt="Noor Ul Quran Logo"
+        className="h-10 w-10 sm:h-11 sm:w-11 object-contain shrink-0"
+      />
       <span className="leading-tight">
         <span
-          className={`block font-display text-[15px] sm:text-base ${
+          className={`block font-display text-[15px] sm:text-base font-medium ${
             light ? "text-paper" : "text-night-900"
           }`}
         >
           Noor Ul Quran
         </span>
         <span
-          className={`block font-body text-[10px] tracking-wide ${
+          className={`block font-body text-[10px] sm:text-[11px] tracking-wide ${
             light ? "text-paper/60" : "text-ink-faint"
           }`}
         >
